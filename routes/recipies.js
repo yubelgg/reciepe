@@ -1,5 +1,5 @@
 import express from "express";
-// import Recipe from "../models/Recipe.js";
+import Recipe from "../models/Recipe.js";
 
 const router = express.Router();
 
@@ -21,10 +21,10 @@ router.get("/", async (req, res) => {
     // }
 
     // return filtered data
-    // const recipies = await Recipe.find();
-    // console.log(recipies);
-    // res.json(recipies);
-    res.send("Recipies");
+    const recipies = await Recipe.find({});
+    console.log(recipies);
+    res.json(recipies);
+    // res.send("Recipies");
 })
 
 router.post("/", async (req, res) => {

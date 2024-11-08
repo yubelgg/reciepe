@@ -1,57 +1,25 @@
 import mongoose, { Schema } from "mongoose";
 
 const recipeSchema = new Schema({
-    title: {
-        type: String,
-        required: true
-    },
-    totalTime: {
-        type: Number,
-        required: true
-    },
-    servings: {
-        type: Number,
-        required: true,
-    },
-    cuisine: {
-        type: String,
-        required: true,
-    },
-    ingredients: {
-        type: [
-            {
-                ingredient: {
-                    type: String,
-                    required: true
-                },
-                unit: {
-                    type: String,
-                    required: true
-                },
-                quantity: {
-                    type: String,
-                    required: true
-                }
-            }
-        ],
-        required: true
-    },
+    title: String,
+    totalTime: String,
+    servings: String,
+    cuisine: String,
+    ingredients: [
+        {
+            ingredient: String,
+            unit: String,
+            quantity: String,
+            quantityNum: Number
+        }
+    ],
     steps: [String],
     type: [String],
     source: {
-        type: {
-            name: {
-                type: String,
-                required: true,
-            },
-            uri: {
-                type: String,
-                required: true,
-            }
-        },
-        required: true
+        name: String,
+        uri: String
     }
 })
 
-const recipeModel = mongoose.model("recipies", recipeSchema);
+const recipeModel = mongoose.model("Recipe", recipeSchema);
 export default recipeModel;
